@@ -1,0 +1,18 @@
+System: "Configurations/System/config.yml"
+
+Workflow: "Configurations/Workflow/config.yml"
+Query: "Configurations/Query/config.yml"
+
+Supporting_info: "Configurations/Supporting Information/config.yml"
+
+PMC: "Configurations/PMC/config.yml"
+
+Locations: "Configurations/Locations/config.yml"
+NLP: "Configurations/NLP/config.yml"
+
+Visualisations: "Configurations/Visualisations/config.yml"
+
+
+Debug: "Configurations/Debug/config.yml"
+
+

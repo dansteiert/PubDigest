@@ -1,0 +1,14 @@
+tool_name: PubDigest # PubMed Central kindly requests, to identify services
+# TODO: update your Mail here! and build a check for it!
+email: pubdigest@charite.de # email should be the e-mail address of the maintainer of the tool, and should be a valid e-mail address
+
+pymed:
+  max_results: 100000000
+  batch_size: 250
+  timeout: 100
+
+
+iCite:
+  fields_to_return: null
+  chunck_size: 250 #  do not increase too high -> results in issues with iCite API!
+iCite_update_in_months: 6

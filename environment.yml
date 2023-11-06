@@ -1,0 +1,24 @@
+name: PubDigest
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python
+  - pandas
+  - openpyxl
+  - matplotlib
+  - seaborn
+  - numpy
+  - gensim
+  - scikit-learn
+  - scipy
+  - requests
+  - pip
+  - pip:
+    - chembl-webresource-client
+    - nltk
+    - tqdm
+    - wordcloud
+    - pyyaml
+    - pyenchant
+    - pymed @ git+https://github.com/dansteiert/pymed

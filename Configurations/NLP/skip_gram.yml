@@ -1,0 +1,31 @@
+# NLP options:
+#n_gram_list: [1, 3, 5]
+n_gram_list: [1]
+words_to_remove: ["have", "be", "use", "may", "not", "II", "III", "IV", "VI", "VII", "VIII"]
+
+tfidf_filter_criterion: "avg"
+
+
+filter_medical_terms: True
+medicalterms_to_ignore_suffix: ["ase", "pathy", "thoracic", "graphy", "pathic"]
+medicalterms_to_ignore: ["april"]
+
+disease_terms_to_ignore: ["diagnosis", "prognosis", "misdiagnosis", "analysis", "basis",
+                          "meta-analysis", "ontology", "doagra", "angiogram", "hypothesis", "program", "synthesis", "poor-prognosis"]
+
+
+# Embedding options:
+skip_gram_CBOW: "skip-gram" # CBOW or skip-gram
+min_year: 2018 #  From which year on out, models should be build
+year_interval: 1 # Interval at which years are build starting at current year, e.g. 3 builds intervals like 2021, 2018, 2015, ...
+
+
+update_w2v_model: False
+
+word2vec:
+  min_count: 5
+
+# Text Summary:
+summary_top_x_terms: 20
+summary_top_x_authors: 20
+summary_top_x_publications: 20

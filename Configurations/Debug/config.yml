@@ -1,0 +1,1 @@
+print_non_assigned_affiliations: False # Debug feature, to find spelling differences, for non-matachble affiliations e.g. non-english spellings of cities/countries

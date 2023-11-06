@@ -1,0 +1,24 @@
+
+# Define program steps:
+# Data Processing
+update_dataset: False # re-crawl PubMed
+sanitise_missing_publications: False # process data/get into processable format
+affiliation_search: True # Map affiliations to our dataset
+update_citations: False # query iCite for new data
+skip_build_dataset: True # only applicable if a dataset already exists
+additional_publications_dataset_rebuild_threshold: 1000
+process_by_timeinterval: True
+
+# Extra Tasks
+gen_abb_dict: True # Generate dictionary of abbreviations
+gen_text_summary: True # Generate short summaries
+
+
+# Plotting
+gen_plots: True # Plot all available data
+keyword_plotting: True # Plot key words by timeinterval
+
+# Embedding
+train_w2v_model: True
+train_joined_embeddings: True
+predict_transferable_terms: True

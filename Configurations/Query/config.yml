@@ -1,0 +1,74 @@
+# Query
+# TODO:
+base_query_term: "Chronic thromboembolic pulmonary hypertension"
+
+base_query_abb: CTEPH
+base_query_parameters:
+  Language: "english"
+
+alternate_query_terms: # either use [] for no alternate query terms or list them with - your query term
+  - venous thrombosis
+#  - thrombosis
+
+
+alternate_query_abb: # either use [] for no alternate query terms abbreviations or list them with - your query term abb.
+  # This needs to match the order of the alternate query terms!
+  # add - null to match terms for which you do not want to give a abbreviation
+  - VT
+
+alternate_query_parameters:
+  Language: "english"
+
+
+# Timeinterval definition:
+# "Fixed" Timeintervals 1, 2, 2, 4, 4, 8, 8, 16, 16, ...
+starting_counter: 0
+starting_interval_size: 4
+
+# Predefined publication list
+query_ids_given: False
+query_ids_file_path: null
+query_ids_file_sep: ","
+query_ids_file_id_col: "PMID"
+
+
+max_days_since_last_crawl: 90 # update your database if the last update is in x days in the past
+
+# Term Prediction:
+similar_terms_to_query: 40 # How many terms to predict
+prediction_year: 2018 # From which year on to predict (retrospectively)
+prediction_term: "CTEPH" # The Term around which you want to predict
+terms_to_keep_in_embedding: [] # Terms which might be filtered out due to special terms, but should still be included.
+
+# Disease Name Identifcation
+minimum_naming: 5 # remove all disease erms which have lower counts than this
+top_x_1_gram_disease_names: 10 # Plot the top disease terms
+
+
+
+# Entere here to query for specific terms such as done for the publication
+terms_for_embedding_evaluation: [["riociguat", "bosentan", "sildenafil", "iloprost", "rivaroxaban", "macitentan"], # Top Indications
+                                 [# from previously compiled list
+                                   "caplacizumab", "benzarone", "enalaprilat", "trental", "mechlorethamine", "androgel",
+                                  # https://www.drugs.com/drug-class/thrombolytics.html#
+                                  "streptodornase", "vorapaxar", "abciximab", "eptifibatide", "tirofiban", "streptokinase",
+                                  "alteplase", "tenecteplase", "reteplase", "urokinase", "streptase", "kinlytic", #"abbokinase",
+                                   # https://www.drugs.com/drug-class/thrombin-inhibitors.html
+                                  "dabigatran", "bivalirudin", "desirudin",
+                                   # https://www.drugs.com/drug-class/heparins.html
+                                   "enoxaparin", "delteparin", "tinzaparin", " danaparoid",
+                                   # https://www.drugs.com/drug-class/factor-xa-inhibitors.html
+                                   "apixaban", "fondaparinux", "rivaroxaban", "edoxaban", "betrixaban",
+                                   # https://www.drugs.com/drug-class/coumarins-and-indandiones.html
+                                   "warfarin",
+                                   # https://www.drugs.com/drug-class/antiplatelet-agents.html
+                                 "aspirin", "cangrelor", "cilostazol", "clopidogrel", "dipyridamole", "prasugrel", "ticlopidine", "ticagrelo"], # Anti Thrombose
+                                 [# from a compiled list
+                                   "carfilzomib", "etanercept",  "olmesartan", "olanzapine", "ponatinib", "levaminsol",
+                                 # https://link.springer.com/article/10.1007/s40264-013-0054-6/tables/1
+                                   "ciclosporin", "5-FU", "bleomycin", "busulfan", "cis-platinum", "doxorubicin",
+                                   "gemtuzumab", "asparainase", "l-asparainase", "mitomycin", "paclitaxel", "tamoxifen",
+                                   "thalidomide", "bevacizumab", "rofecoxib", "ephedra", "erythropoietin", "heparin",
+                                   "ciclosporin", "glucocoricoids", "dexamethasone", "sirolimus", "interferon", "interferon-alpha",
+                                   "metformin", "quinine", "escitalopram", "sildenafil", "ticlopidin", "clopidogrel", "tranexamic"
+                                 ]]

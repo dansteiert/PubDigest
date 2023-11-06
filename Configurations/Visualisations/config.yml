@@ -1,0 +1,13 @@
+# Plotting options
+categorial_colorfull_colors: ["#4daf4a", "#e41a1c", "#377eb8", "#984ea3", "#ff7f00", "#a65628", "#ffff33",
+                                  "#f781bf", "#999999"]
+categorial_colors_monochrom:  ["#FFFFFF", "#808080", "#000000"]
+#diverging_colors: "Spectral"
+diverging_colors: "coolwarm"
+single_color: "#0d0c8f" #- blue
+#single_color: "#00b300" #- green
+#single_color: "#808080" #- grey
+single_color_prominent: "#000000" # - black
+alternating_background_colors: ["#000000", "#808000"]
+
+with_title: False
