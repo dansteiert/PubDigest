@@ -18,23 +18,24 @@ While NLP offers an innovative approach to interpret scientific literature, espe
  - conda env create -f environment.yml
 
 
-### Base data
-- Download drug data from CHEMBLE: https://www.ebi.ac.uk/chembl/g/#browse/drugs 
-  - select all/ download as .csv; 
-  - save csv file into the base_data directory as CHEMBL_medication_names.csv
-  - call python misc.prep_CHEMBL()
+### Base data - Manual (should not be necessary)
+- Download drug data from CHEMBLE: 
+  - https://www.ebi.ac.uk/chembl/g/#browse/drugs 
+    - select all/ download as .csv; 
+    - save csv file into the base_data directory as CHEMBL_medication_names.csv
+    - call python misc.prep_CHEMBL()
 
 - Donwload USAN stems:
-- https://www.ama-assn.org/about/united-states-adopted-names/united-states-adopted-names-approved-stems
-- save the xlsx file at base_data, called USAN_Stems.xlsx
-- call python misc.prep_USAN()
+  - https://www.ama-assn.org/about/united-states-adopted-names/united-states-adopted-names-approved-stems
+    - save the xlsx file at base_data, called USAN_Stems.xlsx
+    - call python misc.prep_USAN()
 
 
 - Download a list of cities with their coordinates
   - https://simplemaps.com/data/world-cities 
-  - save the list to base_data as worldcities.csv
-  - This might need curation to achive better results
-    - Some additional help can be the mapping provided in Configs Location
+    - save the list to base_data as worldcities.csv
+    - This might need curation to achive better results
+      - Some additional help can be the mapping provided in Configs Location
 
 ## Running
 - check the configuration files in Configurations

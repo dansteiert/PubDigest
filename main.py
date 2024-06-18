@@ -104,5 +104,5 @@ def system_args_parser():
 
 
 if __name__ == "__main__":
-    # main(config_path="Configurations/Config_Main/config.yml")
-    system_args_parser()
+    main(config_path="Configurations/Config_Main/config.yml")
+    # system_args_parser()

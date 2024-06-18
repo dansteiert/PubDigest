@@ -32,7 +32,7 @@ query_ids_file_sep: ","
 query_ids_file_id_col: "PMID"
 
 
-max_days_since_last_crawl: 90 # update your database if the last update is in x days in the past
+max_days_since_last_crawl: 400 # update your database if the last update is in x days in the past
 
 # Term Prediction:
 similar_terms_to_query: 40 # How many terms to predict

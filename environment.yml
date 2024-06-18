@@ -3,7 +3,7 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - python
+  - python=3.10
   - pandas
   - openpyxl
   - matplotlib
@@ -14,10 +14,12 @@ dependencies:
   - scipy
   - requests
   - pip
+  - jupyterlab
   - pip:
     - chembl-webresource-client
     - nltk
     - tqdm
+    - unidecode
     - wordcloud
     - pyyaml
     - pyenchant
