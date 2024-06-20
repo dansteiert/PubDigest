@@ -14,6 +14,10 @@ While NLP offers an innovative approach to interpret scientific literature, espe
 
 
 ## Installation & Setup:
+### Example
+Check Run_Example_Small.ipynb for full setup and usage.
+For a more detailed installation continue below.
+
 ### Conda environment
  - conda env create -f environment.yml
 
