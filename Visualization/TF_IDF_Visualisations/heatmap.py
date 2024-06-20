@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from misc.visualisations import set_figure_estetics
 from misc.save_files import read_pickle
 from misc.save_figures import save_plt_figure
+from misc.abb_med_disease import gen_abb_med_disease
 
 
 from matplotlib.colors import LogNorm
@@ -77,8 +78,7 @@ def tfidf_heatmap(config: dict, n_gram: int = 1, med: bool = False, abb: bool = 
 
     logger = logging.getLogger(config["System"]["logging"]["logger_name"])
 
-    abb_med = '_abb_med' if med and abb else ('_med' if med else ('_abb' if abb else ("_disease" if disease else "")))
-
+    abb_med = gen_abb_med_disease(abb=abb, med=med, disease=disease)
 
 
     target_file_filtered_sorted_global = os.path.join(config["System"]["base_dir"], "Plot", "Keywords",
