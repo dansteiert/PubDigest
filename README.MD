@@ -1,3 +1,7 @@
+
+![image](Graphical_Abstract.png)
+
+
 ## Installation & Setup:
 ### Example
 Check Run_Example_Small.ipynb for full setup and usage.
