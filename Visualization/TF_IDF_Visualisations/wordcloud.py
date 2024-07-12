@@ -69,7 +69,7 @@ def full_wordcloud(config: dict, n_gram: int = 1, med: bool = False, abb: bool =
     # <editor-fold desc="Figure esthetics and saving">
     plt.axis("off")
     plt.tight_layout()
-    save_plt_figure(path=target_file, logger=logger, dpi=1600)
+    save_plt_figure(path=target_file, logger=logger, dpi=800)
     # </editor-fold>
 
 

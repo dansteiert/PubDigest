@@ -41,18 +41,18 @@ def generate_visualisations(config: dict, df_publications: pd.DataFrame, df_auth
                                       figure_scale=2,
                                       cutoff=25, titlesize="large", disease=False)
                         # TODO: Integrate
-                        from Visualization.Keyword_Plotting import plot_keywords_as_venn_diagram, \
-                            plot_keywords_by_timeinterval, plot_keywords_as_mosaik
-
-                        plot_keywords_as_mosaik(config=config, n_gram=n_gram, med=med, abb=abb,
-                                                cutoff=40,
-                                                fontsize=16, figure_ratio=2 / 1.3, figure_scale=2)
-                        plot_keywords_by_timeinterval(config=config, n_gram=n_gram, med=med, abb=abb, cutoff=20,
-                                                      fontsize=16, figure_ratio=3/4, figure_scale=2,
-                                                      titlesize="large")
-                        plot_keywords_as_venn_diagram(config=config, n_gram=n_gram, med=med, abb=abb,
-                                                      cutoff=40,
-                                                      fontsize=16, figure_ratio=2 / 1.3, figure_scale=2)
+                        # from Visualization.Keyword_Plotting import plot_keywords_as_venn_diagram, \
+                        #     plot_keywords_by_timeinterval, plot_keywords_as_mosaik
+                        #
+                        # plot_keywords_as_mosaik(config=config, n_gram=n_gram, med=med, abb=abb,
+                        #                         cutoff=40,
+                        #                         fontsize=16, figure_ratio=2 / 1.3, figure_scale=2)
+                        # plot_keywords_by_timeinterval(config=config, n_gram=n_gram, med=med, abb=abb, cutoff=20,
+                        #                               fontsize=16, figure_ratio=3/4, figure_scale=2,
+                        #                               titlesize="large")
+                        # plot_keywords_as_venn_diagram(config=config, n_gram=n_gram, med=med, abb=abb,
+                        #                               cutoff=40,
+                        #                               fontsize=16, figure_ratio=2 / 1.3, figure_scale=2)
 
                 disease = True
                 tfidf_heatmap(config=config, n_gram=n_gram, med=med, abb=abb, fontsize=15, figure_ratio=4 / 4,

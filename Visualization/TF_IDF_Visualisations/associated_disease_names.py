@@ -8,11 +8,13 @@ from misc.save_files import read_pickle
 
 def plot_associated_disease_names(config: dict):
     logger = logging.getLogger(config["System"]["logging"]["logger_name"])
-    origin_file = os.path.join(config["System"]["base_dir"], "Data_for_Plotting", "Keywords", "disease_name_counts.pkl")
+    origin_file = os.path.join(config["System"]["base_dir"], "Data_for_Plotting", "Keywords",
+                               f'disease_name_counts_top_{config["Query"]["top_x_1_gram_disease_names"]}.pkl')
     df_disease_count = read_pickle(path=origin_file, logger=logger)
 
     df_disease_count = df_disease_count.sort_values(by=["term count"], ascending=False).head(20)
-    target_file = os.path.join(config["System"]["base_dir"], "Plot", "Disease_names.png")
+    target_file = os.path.join(config["System"]["base_dir"], "Plot",
+                               f'Disease_names_top_{config["Query"]["top_x_1_gram_disease_names"]}.png')
 
     set_figure_estetics(y_axis_elements=df_disease_count.shape[0], figure_ratio=10 / 9,
                         figure_scale=3, fontsize=16, titlesize="large")

@@ -24,16 +24,13 @@ def tfidf_heatmap_plotting(target_file: str, df: pd.DataFrame, config: dict, tit
     tfidf_col = "TF-IDF"
 
     cols = [*[i for i in range(min(cols), max(cols))],
-            "_0", "_1", "_2",  "_3", tfidf_col, "_4"
+            *[f"_{_}" for _ in range(0, len(df.columns.tolist()) // 10)], "_before", tfidf_col, "_after"
             ]
     # </editor-fold>
 
     # <editor-fold desc="Add Global TF IDF">
-    df["_0"] = 0
-    df["_1"] = 0
-    df["_2"] = 0
-    df["_3"] = df.loc[:, tfidf_col]
-    df["_4"] = df.loc[:, tfidf_col]
+    df = df.assign(**{**{f"_{_}": 0 for _ in range(0, len(df.columns.tolist()) // 10)},
+                      **{"_before": df.loc[:, tfidf_col], "_after": df.loc[:, tfidf_col]}})
     # </editor-fold>
 
 
@@ -96,11 +93,10 @@ def tfidf_heatmap(config: dict, n_gram: int = 1, med: bool = False, abb: bool = 
         logger.error(f"tfidf_{n_gram}_gram{abb_med}.csv - File does not exist since there are no entries")
         return
     # </editor-fold>
-
-    column_list = [*sorted([i for i in df.columns if i not in [config["NLP"]["tfidf_filter_criterion"], "idf", "sum"]]), "sum"]
-    df = df.sort_values(by=column_list, ascending=True)
     df = df.rename(columns={"sum": "TF-IDF"})
-    column_list[-1] = "TF-IDF"
+    column_list = [*sorted([i for i in df.columns if i not in [config["NLP"]["tfidf_filter_criterion"], "idf", "TF-IDF"] and i > config["Visualisations"]["heatmap_start_year"]]), "TF-IDF"]
+    df = df.sort_values(by=column_list, ascending=True)
+    # column_list[-1] = "TF-IDF"
 
 
     # <editor-fold desc="Call TF-IDF Plot Generation Functions">
@@ -113,7 +109,8 @@ def tfidf_heatmap(config: dict, n_gram: int = 1, med: bool = False, abb: bool = 
                                filtered=False)
 
     if not os.path.isfile(target_file_filtered):
-        df_filtered = df.nlargest(cutoff, columns=[config["NLP"]["tfidf_filter_criterion"]])
+        # df_filtered = df.nlargest(cutoff, columns=[config["NLP"]["tfidf_filter_criterion"]])
+        df_filtered = df.nlargest(cutoff, columns=["TF-IDF"])
         df_filtered = df_filtered[column_list]
         df_filtered = df_filtered.sort_values(by=column_list, ascending=True)
 
@@ -126,7 +123,8 @@ def tfidf_heatmap(config: dict, n_gram: int = 1, med: bool = False, abb: bool = 
                                filtered=True)
 
     if not os.path.isfile(target_file_filtered_sorted_global):
-        df_filtered = df.nlargest(cutoff, columns=[config["NLP"]["tfidf_filter_criterion"]])
+        # df_filtered = df.nlargest(cutoff, columns=[config["NLP"]["tfidf_filter_criterion"]])
+        df_filtered = df.nlargest(cutoff, columns=["TF-IDF"]) #
         df_filtered = df_filtered[column_list]
         df_filtered = df_filtered.sort_values(by=["TF-IDF"], ascending=False)
 

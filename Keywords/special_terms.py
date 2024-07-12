@@ -98,7 +98,8 @@ def extract_disease_terms(document_text_list: list, config: dict):
 def identify_possible_diseases(document_text_list: list, terms_of_interest: set, config: dict):
     logger = logging.getLogger(config["System"]["logging"]["logger_name"])
 
-    target_file = os.path.join(config["System"]["base_dir"], "Data_for_Plotting", "Keywords", "disease_name_counts.pkl")
+    target_file = os.path.join(config["System"]["base_dir"], "Data_for_Plotting", "Keywords",
+                               f'disease_name_counts_top_{config["Query"]["top_x_1_gram_disease_names"]}.pkl')
     if os.path.isfile(target_file):
         return
 
@@ -121,7 +122,8 @@ def identify_possible_diseases(document_text_list: list, terms_of_interest: set,
 
 def identify_possible_diseases_wrapper(config: dict, document_text_list: list):
     logger = logging.getLogger(config["System"]["logging"]["logger_name"])
-    target_file = os.path.join(config["System"]["base_dir"], "Data_for_Plotting", "Keywords", "disease_name_counts.pkl")
+    target_file = os.path.join(config["System"]["base_dir"], "Data_for_Plotting", "Keywords",
+                               f'disease_name_counts_top_{config["Query"]["top_x_1_gram_disease_names"]}.pkl')
     if os.path.isfile(target_file):
         return
 
@@ -130,7 +132,10 @@ def identify_possible_diseases_wrapper(config: dict, document_text_list: list):
     df = read_pickle(path=origin_file, logger=logger)
     df = df.nlargest(20, columns=[config["NLP"]["tfidf_filter_criterion"]])
     df = df.sort_values(by="sum", ascending=False)
-    terms_of_interest = set(df.head(config["Query"]["top_x_1_gram_disease_names"]).index)
+    if config["Query"]["top_x_1_gram_disease_names"] == "all":
+        terms_of_interest = set(df.index)
+    else:
+        terms_of_interest = set(df.head(config["Query"]["top_x_1_gram_disease_names"]).index)
     identify_possible_diseases(document_text_list=document_text_list, terms_of_interest=terms_of_interest, config=config)
 
 if __name__ == "__main__":
