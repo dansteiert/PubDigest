@@ -23,7 +23,7 @@ def tfidf_heatmap_plotting(target_file: str, df: pd.DataFrame, config: dict, tit
     cols = [int(i) for i in df.columns if not (df[i] == 0).all() and i != "TF-IDF"]
     tfidf_col = "TF-IDF"
 
-    cols = [*[i for i in range(min(cols), max(cols))],
+    cols = [*[i for i in range(min(cols), max(cols) + 1)],
             *[f"_{_}" for _ in range(0, len(df.columns.tolist()) // 10)], "_before", tfidf_col, "_after"
             ]
     # </editor-fold>
@@ -66,7 +66,7 @@ def tfidf_heatmap_plotting(target_file: str, df: pd.DataFrame, config: dict, tit
         plt.grid(b=True, which="major", axis="y")
 
     plt.tight_layout(rect=(0, 0, 0.95, 1))
-    save_plt_figure(path=target_file, logger=logger)
+    save_plt_figure(path=target_file, logger=logger, save_as_svg=config["Visualisations"]["save_as_svg"])
 
 
 def tfidf_heatmap(config: dict, n_gram: int = 1, med: bool = False, abb: bool = False, disease: bool = False,
@@ -94,7 +94,10 @@ def tfidf_heatmap(config: dict, n_gram: int = 1, med: bool = False, abb: bool = 
         return
     # </editor-fold>
     df = df.rename(columns={"sum": "TF-IDF"})
-    column_list = [*sorted([i for i in df.columns if i not in [config["NLP"]["tfidf_filter_criterion"], "idf", "TF-IDF"] and i > config["Visualisations"]["heatmap_start_year"]]), "TF-IDF"]
+    if disease:
+        column_list = [*sorted([i for i in df.columns if i not in [config["NLP"]["tfidf_filter_criterion"], "idf", "TF-IDF"] and i > config["Visualisations"]["heatmap_start_year_disease"]]), "TF-IDF"]
+    else:
+        column_list = [*sorted([i for i in df.columns if i not in [config["NLP"]["tfidf_filter_criterion"], "idf", "TF-IDF"] and i > config["Visualisations"]["heatmap_start_year"]]), "TF-IDF"]
     df = df.sort_values(by=column_list, ascending=True)
     # column_list[-1] = "TF-IDF"
 

@@ -39,7 +39,7 @@ def generate_visualisations(config: dict, df_publications: pd.DataFrame, df_auth
                                            fontsize=15, figure_ratio=3 / 4, figure_scale=1)
                         tfidf_heatmap(config=config, n_gram=n_gram, med=med, abb=abb, fontsize=15, figure_ratio=4 / 4,
                                       figure_scale=2,
-                                      cutoff=25, titlesize="large", disease=False)
+                                      cutoff=20, titlesize="large", disease=False)
                         # TODO: Integrate
                         # from Visualization.Keyword_Plotting import plot_keywords_as_venn_diagram, \
                         #     plot_keywords_by_timeinterval, plot_keywords_as_mosaik
@@ -55,9 +55,9 @@ def generate_visualisations(config: dict, df_publications: pd.DataFrame, df_auth
                         #                               fontsize=16, figure_ratio=2 / 1.3, figure_scale=2)
 
                 disease = True
-                tfidf_heatmap(config=config, n_gram=n_gram, med=med, abb=abb, fontsize=15, figure_ratio=4 / 4,
+                tfidf_heatmap(config=config, n_gram=n_gram, med=med, abb=abb, fontsize=15, figure_ratio=4 / 6,
                               figure_scale=2, disease=disease,
-                              cutoff=25, titlesize="large")
+                              cutoff=20, titlesize="large")
             plot_associated_disease_names(config=config)
 
         if config["Workflow"]["affiliation_search"]:

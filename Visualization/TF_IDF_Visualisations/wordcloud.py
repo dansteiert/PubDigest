@@ -38,8 +38,11 @@ def full_wordcloud(config: dict, n_gram: int = 1, med: bool = False, abb: bool =
     abb_med = '_abb_med' if med and abb else ('_med' if med else ('_abb' if abb else ''))
     target_file = os.path.join(config["System"]["base_dir"], "Plot", "Keywords", f"{n_gram}_gram", abb_med,
                                f"{n_gram}_gram{abb_med}_wordcloud_full.png")
+    # target_file_svg = os.path.join(config["System"]["base_dir"], "Plot", "Keywords", f"{n_gram}_gram", abb_med,
+    #                            f"{n_gram}_gram{abb_med}_wordcloud_full.svg")
     target_data_file = os.path.join(config["System"]["base_dir"], "Data_for_Plotting", "Keywords", f"{n_gram}",
                                     f"tfidf_{n_gram}_gram{abb_med}_filterable.pkl")
+    # if os.path.isfile(target_file) and os.path.isfile(target_file_svg):
     if os.path.isfile(target_file):
         return
     set_figure_estetics(figure_ratio=figure_ratio,
@@ -62,13 +65,14 @@ def full_wordcloud(config: dict, n_gram: int = 1, med: bool = False, abb: bool =
                    min_font_size=5, max_font_size=60)
     wc.generate_from_frequencies(frequencies=freq)
 
-    plt.figure(figsize=(20, 10))
+    plt.figure(figsize=(20, 10), dpi=800)
     plt.imshow(wc, interpolation="bilinear")
     # </editor-fold>
 
     # <editor-fold desc="Figure esthetics and saving">
     plt.axis("off")
     plt.tight_layout()
+    # wc.to_svg(target_file_svg)
     save_plt_figure(path=target_file, logger=logger, dpi=800)
     # </editor-fold>
 
