@@ -205,7 +205,8 @@ def is_in_dataset(config: dict, dataset_a: str, dataset_b: str,
 
 
     dataset_b_pos = [idx for idx, term in enumerate(config["Query"]["alternate_query_terms"]) if term == dataset_b][0]
-    abb_conversion_dict = {dataset_a: config["Query"]["base_query_abb"], dataset_b: config["Query"]["alternate_query_abb"][dataset_b_pos]}
+    abb_conversion_dict = {dataset_a: config["Query"]["base_query_abb"],
+                           dataset_b: config["Query"]["alternate_query_abb"][dataset_b_pos]}
 
     dataset_a_dict = read_DocTermDict(target_dir=os.path.join(config["System"]["working_dir"], "data", dataset_a,
                                                               f"DocumentTermDictionary"), logger=logger)
