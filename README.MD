@@ -193,3 +193,6 @@ This Program makes use of the following packages:
 |           zipp 3.15.0            |                          (Licence not found)                           |
 +----------------------------------+------------------------------------------------------------------------+
 
+
+
+This tool is provided for educational and informational purposes only and does not constitute providing medical advice or professional services. The information provided should not be used for diagnosing or treating a health problem or disease, and those seeking personal medical advice should consult with a licensed physician. Always seek the advice of your doctor or other qualified health provider regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read here or in any outputs of the tool. No physician-patient relationship is created by this tool or its use. Non of the contributors to this tool, make any representations, express or implied, with respect to the information provided herein or to its use. 
