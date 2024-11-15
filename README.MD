@@ -2,6 +2,17 @@
 ![image](Graphical_Abstract.png)
 
 
+## Citing
+"An exploration into CTEPH medications: Combining natural language processing, embedding learning, in vitro models, and real-world evidence for drug repurposing"
+https://doi.org/10.1371/journal.pcbi.1012417 
+
+## Introduction:
+We tackled the challenge of keeping up with the ever-growing scientific literature. We focused on leveraging the power of natural language processing (NLP) to work through extensive literature data, targeting the discovery of new drug applications. Our tool, PubDigest, applies advanced NLP techniques and scans vast amounts of research abstracts from PubMed to uncover links between drugs and diseases. Our primary case study presents chronic thromboembolic pulmonary hypertension (CTEPH), a rare but life-threatening condition. Employing PubDigest, a notable discovery was the potential use of caplacizumab or benzofuran derivatives like amiodarone in treating CTEPH, suggested by their anti-thrombotic properties. However, we didn’t rely solely on computational analysis. Lab experiments, toxicity prediction, and clinical data were essential to validate these findings. While amiodarone showed promise in laboratory tests, real-world clinical data indicated increased mortality risks in CTEPH patients treated with it. This highlighted the crucial need to complement computational discoveries with practical, real-world evaluations. Our research shows the value of combining computational tools with traditional methods in medical research. This approach accelerates drug discovery and emphasizes a comprehensive view, especially for rare diseases. Through this work, we aim to contribute a novel, efficient pipeline for drug discovery that opens new doors in medical treatment and research.
+
+## Adaption to your own work:
+With the help of the jupyter notebooks, you can adapt this tool easily to your own disease/entity of interest.
+
+
 ## Installation & Setup:
 ### Example
 Check Run_Example_Small.ipynb for full setup and usage.
